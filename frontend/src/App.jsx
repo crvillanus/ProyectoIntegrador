@@ -13,22 +13,20 @@
 // }
 
 // export default App;
-import { BrowserRouter as Router } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/organisms/NavBar";
-import TravelCardContainer from "./components/organisms/TravelCardContainer";
 import Footer from "./components/organisms/Footer";
+import Home from "./components/pages/Home";
 
 const App = () => {
   return (
-    <Router>
-      <div className="flex flex-col min-h-screen">
-        <Navbar />
-        <div className="flex-grow bg-[var(--color-primary)] flex justify-center items-center">
-          <TravelCardContainer />
-        </div>
-        <Footer />
-      </div>
-    </Router>
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <Routes>      
+        <Route path="/" element={<Home />} />    
+      </Routes>
+      <Footer />
+   </div>
   );
 };
 
